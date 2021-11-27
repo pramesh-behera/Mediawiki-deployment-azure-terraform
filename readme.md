@@ -6,7 +6,7 @@ This project describes the steps for deploying MediaWiki in Azure Using Terrafor
 
   This repository contain below files.
 
-  - main.tf - This file provide terraform code for deploymment virtual machine and provisioning the resources.
+  - main.tf - This file provides terraform code for deploymment virtual machine and provisioning the resources in Azure cloud.
   - automate.sh - This is a shell script, that performs all the activities starting from installing required packages to publish the service.
   - apache-config.conf - This is the config file to setup the apache server.
 
