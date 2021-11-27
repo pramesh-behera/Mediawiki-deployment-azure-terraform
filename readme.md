@@ -1,6 +1,6 @@
 # MediaWiki Deployment in Azure using Terraform
 
-This project describes the steps for deploying MediaWiki using Terraform in RHEL 8 virtual machine for Azure . Please follow below steps for the complete deployment.
+This project describes the steps for deploying MediaWiki using Terraform in RHEL 8 virtual machine in Azure . Please follow below steps for the complete deployment.
 
 - ## About the repository :
 
