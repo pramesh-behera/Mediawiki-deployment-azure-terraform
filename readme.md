@@ -14,7 +14,7 @@ This project describes the steps deploying MediaWiki in Azure Using Terraform fo
   - You should have Microsoft Azure account.
   - Download Terraform application into your system and define the path in system environment variables.
   - Download AzureCLI and install in your system.
-  - login using this command "az login".
+  - Login by executing this command "az login" in cmd or powershell.
 - ## Steps to follow :
   - Clone the repository into your local system.
   - Open cmd or powershell and change the directory to the cloned repository.
