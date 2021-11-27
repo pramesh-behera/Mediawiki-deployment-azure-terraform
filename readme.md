@@ -25,3 +25,4 @@ This project describes the steps deploying MediaWiki in Azure Using Terraform fo
 ### Mediawiki is now deplyed in your azure virtual machine. You can check by opening "http://\<publicip>/mediawiki/" in your browser and follow the mentioned step to set up the wiki.
 
 ### You can edit the automate.sh file to provide your own database credentials also you can refer to this <a href="https://www.mediawiki.org/wiki/Manual:Running_MediaWiki_on_Red_Hat_Linux">mediawiki</a> link for more details.
+### Note: You can use this command "terraform output -raw tls_private_key" in cmd or powershell to get the private ssh key for login in to Azure virtual machine.
