@@ -5,6 +5,7 @@ sudo dnf install httpd php php-mysqlnd php-gd php-xml mariadb-server mariadb php
 sudo yum install php-intl -y
 sudo dnf install mariadb-server mariadb -y
 sudo systemctl start mariadb
+#Below EOF command "secret" is the root password for mariadb. You can change it.
 sudo mysql_secure_installation <<EOF
 
 y
@@ -15,8 +16,7 @@ y
 y
 y
 EOF
-
-sudo mysql -u root --password=secret -e "CREATE USER 'wiki'@'localhost' IDENTIFIED BY 'Testing12345';"
+sudo mysql -u root --password=secret -e "CREATE USER 'wiki'@'localhost' IDENTIFIED BY 'Testing12345';"#replace "wiki" and "Testing12345" with your desired credential
 sudo mysql -u root --password=secret -e "CREATE DATABASE wikidatabase;"  
 sudo mysql -u root --password=secret -e "GRANT ALL PRIVILEGES ON wikidatabase.* TO 'wiki'@'localhost';"
 sudo mysql -u root --password=secret -e "FLUSH PRIVILEGES;"
@@ -27,7 +27,7 @@ sudo wget https://releases.wikimedia.org/mediawiki/1.37/mediawiki-1.37.0.tar.gz
 cd /var/www
 sudo tar -zxf /home/mediawiki-1.37.0.tar.gz
 sudo ln -s mediawiki-1.37.0/ mediawiki
-sudo cp /tmp/wiki.conf /etc/httpd/conf/httpd.conf
+sudo cp /tmp/apache-config.conf /etc/httpd/conf/httpd.conf
 sudo chown -R apache:apache /var/www/mediawiki
 sudo service httpd restart
 sudo firewall-cmd --permanent --zone=public --add-service=http

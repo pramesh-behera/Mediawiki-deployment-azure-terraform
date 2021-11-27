@@ -4,31 +4,31 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "azure" {
-  name     = "NewRG"
-  location = "West Europe"
+  name     = "Az-ResourceGroup"
+  location = "East Us"
 }
 
 resource "azurerm_virtual_network" "azure" {
-  name                = "AzVnet"
+  name                = "Az-Vnet"
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.azure.location
   resource_group_name = azurerm_resource_group.azure.name
 }
 
 resource "azurerm_subnet" "azure" {
-  name                 = "AzSubnet"
+  name                 = "Az-Subnet"
   resource_group_name  = azurerm_resource_group.azure.name
   virtual_network_name = azurerm_virtual_network.azure.name
   address_prefixes     = ["10.0.2.0/24"]
 }
 resource "azurerm_public_ip" "azure" {
-  name                = "AzPublicIp"
+  name                = "Az-PublicIp"
   resource_group_name = azurerm_resource_group.azure.name
   location            = azurerm_resource_group.azure.location
   allocation_method   = "Dynamic"
 }
 resource "azurerm_network_security_group" "azure" {
-  name                = "AzNSG"
+  name                = "Az-NSG"
   location            = azurerm_resource_group.azure.location
   resource_group_name = azurerm_resource_group.azure.name
 
@@ -69,7 +69,7 @@ output "tls_private_key" {
 }
 
 resource "azurerm_network_interface" "azure" {
-  name                = "AzNic"
+  name                = "Az-Nic"
   location            = azurerm_resource_group.azure.location
   resource_group_name = azurerm_resource_group.azure.name
 
@@ -82,7 +82,7 @@ resource "azurerm_network_interface" "azure" {
 }
 
 resource "azurerm_linux_virtual_machine" "azure" {
-  name                = "AzVm"
+  name                = "Az-Virtualmachine"
   resource_group_name = azurerm_resource_group.azure.name
   location            = azurerm_resource_group.azure.location
   size                = "Standard_DS1_v2"
@@ -117,17 +117,17 @@ resource "azurerm_linux_virtual_machine" "azure" {
   }
 
   provisioner "file" {
-    source      = "script1.sh"
-    destination = "/tmp/script1.sh"
+    source      = "automate.sh"
+    destination = "/tmp/automate.sh"
   }
   provisioner "file" {
-    source      = "wiki.conf"
-    destination = "/tmp/wiki.conf"
+    source      = "apache-config.conf"
+    destination = "/tmp/apache-config.conf"
   }
 
   provisioner "remote-exec" {
     inline = [
-      "/bin/bash /tmp/script1.sh"
+      "/bin/bash /tmp/automate.sh"
     ]
   }
 }
