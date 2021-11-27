@@ -1,12 +1,12 @@
 # MediaWiki Deployment in Azure using Terraform
 
-This project describes the steps for deploying MediaWiki in Azure Using Terraform for RHEL 8 virtual machine . Please follow below steps for the complete deployment.
+This project describes the steps for deploying MediaWiki using Terraform in RHEL 8 virtual machine for Azure . Please follow below steps for the complete deployment.
 
 - ## About the repository :
 
   This repository contain below files.
 
-  - main.tf - This file provides terraform code for deploymment virtual machine and provisioning the resources in Azure cloud.
+  - main.s file provides terraform code for deploymment virtual machine and provisioning the resources in Azure cloud.
   - automate.sh - This is a shell script, that performs all the activities starting from installing required packages to publish the service.
   - apache-config.conf - This is the config file to setup the apache server.
 
